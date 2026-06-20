@@ -5,29 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>聊一件打动我的事：AI for Science 2025</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --gradient-1: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-    --gradient-2: linear-gradient(135deg, #667eea, #764ba2);
-    --gradient-3: linear-gradient(135deg, #f093fb, #f5576c);
-    --gradient-4: linear-gradient(135deg, #4facfe, #00f2fe);
-    --gradient-5: linear-gradient(135deg, #43e97b, #38f9d7);
-    --gradient-6: linear-gradient(135deg, #fa709a, #fee140);
-    --gradient-7: linear-gradient(135deg, #a18cd1, #fbc2eb);
-    --gradient-8: linear-gradient(135deg, #fccb90, #d57eeb);
-    --gradient-9: linear-gradient(135deg, #e0c3fc, #8ec5fc);
-    --gradient-10: linear-gradient(135deg, #0f0c29, #667eea);
+    --bg-void: #000000;
+    --bg-panel: #08090a;
+    --bg-surface: #0f1011;
+    --bg-elevated: #191a1b;
+    --bg-card: rgba(255,255,255,0.03);
+    --bg-card-hover: rgba(255,255,255,0.06);
+    --border-subtle: rgba(255,255,255,0.05);
+    --border-default: rgba(255,255,255,0.08);
+    --border-strong: rgba(255,255,255,0.12);
+    --text-primary: #f7f8f8;
+    --text-secondary: #d0d6e0;
+    --text-tertiary: #8a8f98;
+    --text-quaternary: #62666d;
+    --accent: #5e6ad2;
+    --accent-bright: #7170ff;
+    --accent-hover: #828fff;
+    --accent-glow: rgba(94,106,210,0.15);
+    --success: #10b981;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
   }
 
   body {
-    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     overflow: hidden;
     height: 100vh;
-    background: #0f0c29;
-    color: #fff;
+    background: var(--bg-void);
+    color: var(--text-primary);
+    font-feature-settings: 'cv01', 'ss03';
   }
 
   .slides-container {
@@ -48,9 +61,10 @@
     align-items: center;
     padding: 60px 80px;
     opacity: 0;
-    transform: scale(0.95);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(0.96);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
+    background: var(--bg-void);
   }
 
   .slide.active {
@@ -60,25 +74,47 @@
   }
 
   .slide-title {
-    font-size: clamp(2rem, 4vw, 4.5rem);
-    font-weight: 900;
-    margin-bottom: 20px;
-    line-height: 1.3;
+    font-size: clamp(1.8rem, 3.2vw, 3.2rem);
+    font-weight: 500;
+    margin-bottom: 16px;
+    line-height: 1.15;
     text-align: center;
+    letter-spacing: -0.04em;
+    color: var(--text-primary);
+  }
+
+  .slide-title.gradient-accent {
+    background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .slide-title.gradient-cyan {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .slide-subtitle {
-    font-size: clamp(1rem, 1.8vw, 2rem);
-    font-weight: 300;
-    opacity: 0.85;
+    font-size: clamp(0.95rem, 1.5vw, 1.5rem);
+    font-weight: 400;
+    color: var(--text-secondary);
     text-align: center;
-    max-width: 800px;
-    line-height: 1.8;
+    max-width: 700px;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  .slide-subtitle.muted {
+    color: var(--text-tertiary);
+    font-size: clamp(0.85rem, 1.2vw, 1.2rem);
   }
 
   .content-grid {
     display: grid;
-    gap: 24px;
+    gap: 16px;
     max-width: 1100px;
     width: 100%;
     margin-top: 20px;
@@ -89,605 +125,695 @@
   .grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
 
   .card {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 20px;
-    padding: 28px 24px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: 24px 22px;
+    transition: all 0.3s ease;
+    position: relative;
   }
 
   .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(102,126,234,0.25);
+    background: var(--bg-card-hover);
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 1px var(--accent-glow);
   }
 
   .card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 12px;
+    font-size: 2rem;
+    margin-bottom: 10px;
   }
 
   .card-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 8px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
   }
 
   .card-desc {
-    font-size: 0.92rem;
-    line-height: 1.7;
-    opacity: 0.82;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-tertiary);
   }
 
   .highlight-box {
-    background: rgba(255,255,255,0.1);
-    border-left: 4px solid #667eea;
-    padding: 20px 24px;
-    border-radius: 0 16px 16px 0;
-    max-width: 800px;
-    margin: 16px 0;
-    line-height: 1.9;
-    font-size: 1.1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-left: 3px solid var(--accent);
+    padding: 16px 20px;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    max-width: 780px;
+    margin: 14px 0;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+
+  .highlight-box strong {
+    color: var(--text-primary);
+    font-weight: 500;
   }
 
   .tag {
     display: inline-block;
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-size: 0.78rem;
+    padding: 3px 12px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
     font-weight: 500;
     margin: 2px;
+    letter-spacing: -0.01em;
+    border: 1px solid var(--border-default);
+    background: var(--bg-card);
+    color: var(--text-secondary);
   }
-  .tag-blue { background: rgba(102,126,234,0.3); color: #a8b8ff; }
-  .tag-pink { background: rgba(245,87,108,0.3); color: #ff9aaa; }
-  .tag-green { background: rgba(67,233,123,0.3); color: #7dffa5; }
-  .tag-purple { background: rgba(161,140,209,0.3); color: #d4c2f0; }
-  .tag-yellow { background: rgba(250,113,154,0.25); color: #ffc8a0; }
-  .tag-cyan { background: rgba(79,172,254,0.3); color: #8ed4ff; }
+
+  .tag-accent {
+    border-color: rgba(94,106,210,0.3);
+    color: var(--accent-hover);
+    background: rgba(94,106,210,0.08);
+  }
+
+  .tag-green {
+    border-color: rgba(16,185,129,0.3);
+    color: var(--success);
+    background: rgba(16,185,129,0.08);
+  }
 
   .progress-bar {
     position: fixed;
     bottom: 0; left: 0;
-    height: 3px;
-    background: var(--gradient-2);
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-bright));
     transition: width 0.5s ease;
     z-index: 100;
   }
 
   .slide-counter {
     position: fixed;
-    bottom: 20px;
-    right: 30px;
-    font-size: 0.85rem;
-    opacity: 0.5;
+    bottom: 18px;
+    right: 28px;
+    font-size: 0.8rem;
+    color: var(--text-quaternary);
     z-index: 100;
-    font-weight: 300;
-    letter-spacing: 1px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
   }
 
   .nav-hint {
     position: fixed;
-    bottom: 20px;
+    bottom: 18px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 0.8rem;
-    opacity: 0.35;
+    font-size: 0.72rem;
+    color: var(--text-quaternary);
     z-index: 100;
-    font-weight: 300;
-    letter-spacing: 0.5px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
     text-align: center;
-  }
-
-  .bg-0 { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
-  .bg-1 { background: linear-gradient(135deg, #1a0a2e, #2d1b69); }
-  .bg-2 { background: linear-gradient(135deg, #0d0a2a, #1a1a4e); }
-  .bg-3 { background: linear-gradient(135deg, #120a2e, #2a1a5e); }
-  .bg-4 { background: linear-gradient(135deg, #0f0c29, #1e1850); }
-  .bg-5 { background: linear-gradient(135deg, #0a0a2e, #301550); }
-  .bg-6 { background: linear-gradient(135deg, #0f0c29, #202060); }
-  .bg-7 { background: linear-gradient(135deg, #150a30, #251a60); }
-  .bg-8 { background: linear-gradient(135deg, #0a0a2e, #2a2050); }
-  .bg-9 { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
-
-  .gradient-text {
-    background: var(--gradient-2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gradient-text-pink {
-    background: var(--gradient-3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gradient-text-green {
-    background: var(--gradient-5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gradient-text-cyan {
-    background: var(--gradient-4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .quote-mark {
-    font-size: 4rem;
-    line-height: 1;
-    opacity: 0.3;
-    font-family: Georgia, serif;
   }
 
   .footer-note {
     position: absolute;
-    bottom: 30px;
-    font-size: 0.75rem;
-    opacity: 0.3;
+    bottom: 28px;
+    font-size: 0.72rem;
+    color: var(--text-quaternary);
   }
 
   .emoji-big {
-    font-size: 4rem;
-    margin-bottom: 16px;
+    font-size: 3.5rem;
+    margin-bottom: 14px;
+    filter: drop-shadow(0 0 20px var(--accent-glow));
+  }
+
+  .divider-line {
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin: 14px auto;
   }
 
   .comparison {
     display: flex;
-    gap: 30px;
-    max-width: 1000px;
+    gap: 20px;
+    max-width: 860px;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 16px;
   }
   .comparison-col {
     flex: 1;
-    padding: 24px;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
+    padding: 20px 22px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-default);
+    background: var(--bg-card);
   }
   .comparison-col.old {
-    background: rgba(245,87,108,0.08);
+    border-left: 3px solid #f5576c;
   }
   .comparison-col.new {
-    background: rgba(102,126,234,0.08);
+    border-left: 3px solid var(--accent);
   }
   .comparison-label {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
     font-weight: 500;
+  }
+  .comparison-item {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding: 3px 0;
   }
 
   @media (max-width: 768px) {
     .slide { padding: 30px 20px; }
     .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
     .comparison { flex-direction: column; }
-    .slide-title { font-size: 1.6rem; }
-    .card { padding: 18px 16px; }
+    .slide-title { font-size: 1.4rem; }
+    .card { padding: 16px 14px; }
   }
 
   @media (max-width: 480px) {
-    .slide-title { font-size: 1.3rem; }
-    .slide-subtitle { font-size: 0.9rem; }
+    .slide-title { font-size: 1.2rem; }
+    .slide-subtitle { font-size: 0.85rem; }
     .emoji-big { font-size: 2.5rem; }
   }
 
   .timeline {
     display: flex;
     gap: 0;
-    max-width: 900px;
+    max-width: 800px;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 28px;
   }
   .timeline-item {
     flex: 1;
     text-align: center;
     position: relative;
-    padding: 16px 8px 0;
+    padding: 20px 6px 0;
   }
   .timeline-item::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 2px;
-    height: 16px;
-    background: rgba(255,255,255,0.2);
+    width: 1px;
+    height: 12px;
+    background: var(--border-default);
   }
   .timeline-dot {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    margin: 0 auto 10px;
+    margin: 0 auto 8px;
+    border: 1.5px solid var(--border-strong);
+    background: var(--bg-panel);
+    transition: all 0.3s;
+  }
+  .timeline-item:hover .timeline-dot {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+  }
+  .timeline-dot.active-dot {
+    border-color: var(--accent);
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
   }
   .timeline-year {
-    font-size: 0.8rem;
-    font-weight: 700;
-    opacity: 0.6;
-    margin-bottom: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-quaternary);
+    margin-bottom: 3px;
+    letter-spacing: 0.03em;
   }
   .timeline-label {
-    font-size: 0.78rem;
-    opacity: 0.75;
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
     line-height: 1.4;
+  }
+
+  .paradigm-cards {
+    display: flex;
+    gap: 10px;
+    max-width: 800px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .paradigm-card {
+    flex: 1;
+    text-align: center;
+    padding: 14px 8px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-default);
+    background: var(--bg-card);
+    transition: all 0.3s;
+  }
+  .paradigm-card:hover {
+    border-color: var(--accent);
+    background: var(--bg-card-hover);
+  }
+  .paradigm-num {
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--text-quaternary);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .paradigm-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+  .paradigm-desc {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  .bounce-arrow {
+    width: 24px;
+    height: 24px;
+    border-right: 1.5px solid var(--text-quaternary);
+    border-bottom: 1.5px solid var(--text-quaternary);
+    transform: rotate(45deg);
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translate(0, 0); opacity: 0.3; }
+    50% { transform: rotate(45deg) translate(4px, 4px); opacity: 0.7; }
+  }
+
+  .pill-button {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    transition: all 0.3s;
+  }
+
+  .impact-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .impact-item {
+    text-align: center;
+    padding: 10px 20px;
+  }
+  .impact-icon {
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+  }
+  .impact-label {
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.02em;
   }
 </style>
 </head>
 <body>
-
 <div class="slides-container" id="slides">
 
-  <!-- SLIDE 0: 标题页 -->
-  <div class="slide active bg-0" data-index="0">
-    <div class="emoji-big">🧬🤖</div>
-    <div class="slide-title gradient-text" style="font-size:clamp(1.8rem, 3.8vw, 3.8rem);">聊一件打动我的事</div>
-    <div class="slide-title gradient-text-cyan" style="font-size:clamp(1.4rem, 2.8vw, 3rem); margin-top:-10px;">AI for Science 2025</div>
-    <div class="slide-subtitle" style="margin-bottom:6px;">AI 正在重新发明「科学」这件事</div>
-    <div class="slide-subtitle" style="font-size:clamp(0.85rem, 1.2vw, 1.3rem);">而且，比你想的要快得多</div>
-    <div class="highlight-box" style="text-align:center; border-left-color:#667eea; margin-top:24px;">
+  <!-- SLIDE 0: TITLE -->
+  <div class="slide active" data-index="0" style="background:radial-gradient(ellipse 60% 40% at 50% 80%, rgba(94,106,210,0.08), transparent 60%), var(--bg-void);">
+    <div class="emoji-big">🧬</div>
+    <div class="slide-title" style="font-size:clamp(1.6rem, 3.5vw, 3.5rem);">聊一件打动我的事</div>
+    <div class="slide-title gradient-accent" style="font-size:clamp(2rem, 4vw, 4rem); margin-top:-8px; letter-spacing:-0.05em;">AI for Science 2025</div>
+    <div class="slide-subtitle" style="margin-top:6px;">AI 正在重新发明「科学」这件事</div>
+    <div class="slide-subtitle muted" style="margin-top:2px;">而且，比你想的要快得多</div>
+    <div class="divider-line"></div>
+    <div class="highlight-box" style="text-align:center; border-left-color:var(--accent); max-width:600px;">
       AI 不再只是科学工具<br>
       它是正在重塑科学发现范式的<strong>元技术</strong>
     </div>
-    <div style="margin-top:30px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center;">
-      <span class="tag tag-blue">🤖 生成式AI</span>
-      <span class="tag tag-pink">🔬 科学发现</span>
-      <span class="tag tag-green">🧪 自动实验</span>
-      <span class="tag tag-purple">📊 大数据</span>
-      <span class="tag tag-cyan">🌐 跨学科</span>
+    <div style="margin-top:20px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center;">
+      <span class="tag tag-accent">生成式AI</span>
+      <span class="tag tag-accent">科学发现</span>
+      <span class="tag tag-accent">自动实验</span>
+      <span class="tag tag-accent">跨学科</span>
     </div>
-    <div style="margin-top:40px; opacity:0.4; font-size:0.8rem; text-align:center;">
-      基于 Nature「AI for Science 2025」· 数字生命卡兹克风格
+    <div style="margin-top:32px; display:flex; align-items:center; gap:8px; color:var(--text-quaternary); font-size:0.75rem;">
+      <span>Nature 「AI for Science 2025」</span>
+      <span style="font-size:0.5rem;">·</span>
+      <span>数字生命卡兹克风格</span>
     </div>
     <div style="position:absolute; bottom:40px; left:50%; transform:translateX(-50%);">
-      <div style="width:30px; height:30px; border-right:2px solid rgba(255,255,255,0.3); border-bottom:2px solid rgba(255,255,255,0.3); transform:rotate(45deg); animation:bounce 2s infinite;"></div>
+      <div class="bounce-arrow"></div>
     </div>
   </div>
 
-  <!-- SLIDE 1: 什么是AI for Science -->
-  <div class="slide bg-1" data-index="1">
-    <div class="slide-title gradient-text" style="font-size:clamp(1.6rem, 3.2vw, 3.2rem);">说实话，你理解的「科学」<br>可能还停留在上个世纪</div>
-    <div class="slide-subtitle" style="margin-bottom:12px;">我跟你讲，AI 现在干的事，说出来你可能不信</div>
+  <!-- SLIDE 1: 什么是AI4S -->
+  <div class="slide" data-index="1" style="background:var(--bg-void);">
+    <div class="slide-title" style="font-size:clamp(1.4rem, 2.8vw, 2.8rem);">说实话，你理解的「科学」<br>可能还停留在上个世纪</div>
+    <div class="slide-subtitle muted" style="margin-bottom:8px;">AI 现在干的事，说出来你可能不信</div>
     <div class="content-grid grid-3">
       <div class="card">
         <div class="card-icon">🔍</div>
-        <div class="card-title">它在替科学家「看」</div>
+        <div class="card-title">替科学家「看」</div>
         <div class="card-desc">
-          以前靠肉眼和直觉找规律。现在 AI 从海量数据里自己就能看出隐藏模式。根本不用等人来猜假设。
-          就像你看一张图只能看到猫，AI 能看到这张图是谁拍的、什么焦段、猫的心情怎么样。
+          以前靠肉眼看、靠直觉猜规律。现在 AI 从海量数据里自己就能看出隐藏模式。
+          根本不用等人先想好假设再验证。
         </div>
       </div>
       <div class="card">
         <div class="card-icon">🧪</div>
-        <div class="card-title">它在替科学家「试」</div>
+        <div class="card-title">替科学家「试」</div>
         <div class="card-desc">
-          传统试错多慢？一个材料从实验室到应用，十几年。AI加机器人，几十上百个参数同时调，人做不到。
-          我自己的感受是，这种感觉太爽了。不是替代人，是让人从重复劳动里解放出来。
+          传统试错多慢？一个材料从实验室到应用，十几年。AI加机器人，几十上百个参数同时调。
+          这种感觉太爽了。不是替代人，是把人从重复劳动里解放出来。
         </div>
       </div>
       <div class="card">
         <div class="card-icon">🌉</div>
-        <div class="card-title">它在替科学家「搭桥」</div>
+        <div class="card-title">替科学家「搭桥」</div>
         <div class="card-desc">
-          物理学家不懂生物代码，生物学家不懂量子力学。AI 不一样。它不讲学科语言，它讲数学语言。
-          于是隔了半个世纪的物理和生物，忽然能对话了。
+          物理学家不懂生物代码，生物学家不懂量子力学。AI 不讲学科语言，它讲数学语言。
+          隔了半个世纪的物理和生物，忽然能对话了。
         </div>
       </div>
     </div>
-    <div class="highlight-box" style="margin-top:24px; text-align:center; border-left-color:#f5576c;">
-      我想说的是，科学研究正在从「费力摸索」走向「智能加速」<br>
+    <div class="highlight-box" style="margin-top:18px; text-align:center; border-left-color:var(--accent-bright);">
+      科学研究正在从「费力摸索」走向「智能加速」<br>
       这可能是最近十年最激动人心的变化
     </div>
-    <div class="footer-note">← ← 键盘方向键翻页 → →</div>
+    <div class="footer-note">← → 方向键翻页</div>
   </div>
 
-  <!-- SLIDE 2: 传统科研四大范式 -->
-  <div class="slide bg-2" data-index="2">
-    <div class="slide-title gradient-text-cyan" style="font-size:clamp(1.6rem, 3vw, 3rem);">你猜科学家以前是怎么搞研究的？</div>
-    <div class="slide-subtitle" style="font-size:clamp(0.9rem, 1.3vw, 1.4rem); margin-bottom:8px;">我觉得这事特别有意思。我自己也是做了这个才知道，原来科学研究经历了五个阶段</div>
+  <!-- SLIDE 2: 四大范式 -->
+  <div class="slide" data-index="2" style="background:var(--bg-void);">
+    <div class="slide-title" style="font-size:clamp(1.3rem, 2.5vw, 2.5rem);">你猜科学家以前是怎么搞研究的？</div>
+    <div class="slide-subtitle muted" style="margin-bottom:4px;">科学研究走过的五个阶段</div>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-dot" style="background:#f5576c;"></div>
-        <div class="timeline-year">第1代</div>
-        <div class="timeline-label">看见什么<br><span style="font-size:0.7rem;opacity:0.6;">记录什么</span></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">第·1·代</div>
+        <div class="timeline-label">看见什么<br>记录什么</div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-dot" style="background:#667eea;"></div>
-        <div class="timeline-year">第2代</div>
-        <div class="timeline-label">想明白<br><span style="font-size:0.7rem;opacity:0.6;">为什么</span></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">第·2·代</div>
+        <div class="timeline-label">想明白<br>为什么</div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-dot" style="background:#43e97b;"></div>
-        <div class="timeline-year">第3代</div>
-        <div class="timeline-label">用电脑<br><span style="font-size:0.7rem;opacity:0.6;">模拟它</span></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">第·3·代</div>
+        <div class="timeline-label">用电脑<br>模拟它</div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-dot" style="background:#f093fb;"></div>
-        <div class="timeline-year">第4代</div>
-        <div class="timeline-label">让数据<br><span style="font-size:0.7rem;opacity:0.6;">自己说话</span></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">第·4·代</div>
+        <div class="timeline-label">让数据<br>自己说话</div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-dot" style="background:#fee140;"></div>
-        <div class="timeline-year" style="font-weight:900;">AI4S</div>
-        <div class="timeline-label" style="font-weight:700;">AI自己<br><span style="font-size:0.7rem;opacity:0.6;">做科学</span></div>
+        <div class="timeline-dot active-dot"></div>
+        <div class="timeline-year" style="color:var(--accent); font-weight:600;">AI4S</div>
+        <div class="timeline-label" style="color:var(--text-secondary);">AI 自己做<br>科学</div>
       </div>
     </div>
-    <div class="content-grid grid-4" style="margin-top:24px; gap:12px;">
-      <div class="card" style="padding:14px 10px;text-align:center;">
-        <div style="font-size:1.5rem;">🔬</div>
-        <div style="font-size:0.72rem;margin-top:4px;">伽利略落体实验<br>看见什么记什么</div>
+    <div class="paradigm-cards">
+      <div class="paradigm-card">
+        <div class="paradigm-num">第1代</div>
+        <div class="paradigm-title">🔬 经验</div>
+        <div class="paradigm-desc">伽利略落体实验<br>看见什么记什么</div>
       </div>
-      <div class="card" style="padding:14px 10px;text-align:center;">
-        <div style="font-size:1.5rem;">📐</div>
-        <div style="font-size:0.72rem;margin-top:4px;">牛顿写公式<br>猜对了再证明</div>
+      <div class="paradigm-card">
+        <div class="paradigm-num">第2代</div>
+        <div class="paradigm-title">📐 理论</div>
+        <div class="paradigm-desc">牛顿写公式<br>猜对了再证明</div>
       </div>
-      <div class="card" style="padding:14px 10px;text-align:center;">
-        <div style="font-size:1.5rem;">💻</div>
-        <div style="font-size:0.72rem;margin-top:4px;">天气预报那种<br>算不出来就模拟</div>
+      <div class="paradigm-card">
+        <div class="paradigm-num">第3代</div>
+        <div class="paradigm-title">💻 计算</div>
+        <div class="paradigm-desc">天气预报那种<br>算不来就模拟</div>
       </div>
-      <div class="card" style="padding:14px 10px;text-align:center;">
-        <div style="font-size:1.5rem;">📊</div>
-        <div style="font-size:0.72rem;margin-top:4px;">Google流感预测<br>数据里找模式</div>
+      <div class="paradigm-card">
+        <div class="paradigm-num">第4代</div>
+        <div class="paradigm-title">📊 数据</div>
+        <div class="paradigm-desc">Google流感预测<br>数据里找模式</div>
+      </div>
+      <div class="paradigm-card" style="border-color:rgba(94,106,210,0.3);">
+        <div class="paradigm-num" style="color:var(--accent);">AI4S</div>
+        <div class="paradigm-title" style="color:var(--accent-hover);">🤖 智能</div>
+        <div class="paradigm-desc" style="color:var(--text-secondary);">AI驱动<br>自动发现</div>
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 3: 传统范式的困境 -->
-  <div class="slide bg-3" data-index="3">
-    <div class="slide-title gradient-text-pink" style="font-size:clamp(1.5rem, 2.8vw, 2.8rem);">说实话，这些招儿现在不够用了</div>
-    <div class="slide-subtitle" style="font-size:clamp(0.85rem, 1.2vw, 1.3rem);">而且不是我一个人这么觉得。Nature 这篇报告里说的，我深以为然</div>
-    <div class="content-grid grid-2" style="margin-top:16px;">
+  <!-- SLIDE 3: 困境 -->
+  <div class="slide" data-index="3" style="background:var(--bg-void);">
+    <div class="slide-title" style="font-size:clamp(1.3rem, 2.5vw, 2.5rem);">说实话，这些招儿现在不够用了</div>
+    <div class="slide-subtitle muted">Nature 这篇报告里说的，我深以为然</div>
+    <div class="content-grid grid-2" style="margin-top:14px;">
       <div class="card" style="border-left:3px solid #f5576c;">
-        <div class="card-icon">🧩</div>
         <div class="card-title">复杂系统，算不动了</div>
         <div class="card-desc">
           气候变化、大脑神经、流行病传播。这些系统一环套一环，跨尺度跨时空。
-          传统理论不是错了，是根本算不过来。就像你让牛顿去预测明天的股市，他也能给你分析，但没用。
+          传统理论不是错了，是根本算不过来。
         </div>
       </div>
-      <div class="card" style="border-left:3px solid #f093fb;">
-        <div class="card-icon">⏱️</div>
+      <div class="card" style="border-left:3px solid #a78bfa;">
         <div class="card-title">试错太慢，等不起</div>
         <div class="card-desc">
-          材料研发还是烧瓶加运气。一个新药从开始到上市，十年起步。
-          这十年里多少人本来能救的？说真的，不是不想快，是真快不了。
+          材料研发还是烧瓶加运气。新药从开始到上市，十年起步。
+          这十年里多少人本来能救的？
         </div>
       </div>
-      <div class="card" style="border-left:3px solid #fee140;">
-        <div class="card-icon">🔗</div>
+      <div class="card" style="border-left:3px solid #fbbf24;">
         <div class="card-title">数据多，因果难找</div>
         <div class="card-desc">
-          要说数据，从来没人像今天这么多。但「相关」不等于「因果」。
-          吃冰淇淋的人越多，溺水的人也越多。这是真的相关，但你要说冰淇淋导致溺水？那也太扯了。
+          吃冰淇淋的人越多，溺水的人也越多。这是真相关，但你要说冰淇淋导致溺水？
+          相关不等于因果。这道理在科研里也一样。
         </div>
       </div>
-      <div class="card" style="border-left:3px solid #43e97b;">
-        <div class="card-icon">📉</div>
+      <div class="card" style="border-left:3px solid #34d399;">
         <div class="card-title">数据少的时候，更难</div>
         <div class="card-desc">
-          核聚变的数据多贵你知道吗？发一次实验几百万。量子材料也是，做一组数据难如登天。
+          核聚变实验一次几百万。量子材料做一组数据难如登天。
           传统方法在数据稀少的领域，基本就是抓瞎。
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 4: AI的入场 -->
-  <div class="slide bg-4" data-index="4">
-    <div class="slide-title gradient-text-cyan" style="font-size:clamp(1.5rem, 2.8vw, 2.8rem);">AI 来了，然后呢？</div>
-    <div class="slide-subtitle" style="margin-bottom:8px;">它做的不是「优化」，是做了一件以前根本不可能的事</div>
+  <!-- SLIDE 4: AI出场 -->
+  <div class="slide" data-index="4" style="background:radial-gradient(ellipse 50% 35% at 50% 85%, rgba(94,106,210,0.06), transparent 60%), var(--bg-void);">
+    <div class="slide-title" style="font-size:clamp(1.3rem, 2.5vw, 2.5rem);">AI 来了，然后呢？</div>
+    <div class="slide-subtitle muted" style="margin-bottom:6px;">它做的不是「优化」，是做了一件以前根本不可能的事</div>
     <div class="comparison">
       <div class="comparison-col old">
-        <div class="comparison-label" style="color:#f5576c;">❌ 过去这套玩法</div>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <div>先有想法，再做实验</div>
-          <div>手动分析，耗时间</div>
-          <div>各学科各干各的</div>
-          <div>试错靠经验和运气</div>
-        </div>
+        <div class="comparison-label" style="color:#f5576c; opacity:0.7;">过去这套玩法</div>
+        <div class="comparison-item">先有想法，再做实验验证</div>
+        <div class="comparison-item">手动分析，耗时间</div>
+        <div class="comparison-item">各学科各干各的</div>
+        <div class="comparison-item">试错靠经验和运气</div>
       </div>
       <div class="comparison-col new">
-        <div class="comparison-label" style="color:#667eea;">✅ AI 时代</div>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <div>AI 去数据里自己找模式</div>
-          <div>数据量再大，秒级处理</div>
-          <div>跨学科，AI 当翻译</div>
-          <div>AI加机器人自动迭代</div>
-        </div>
+        <div class="comparison-label" style="color:var(--accent-hover); opacity:0.7;">AI 时代</div>
+        <div class="comparison-item">AI 去数据里自己找模式</div>
+        <div class="comparison-item">数据量再大，秒级处理</div>
+        <div class="comparison-item">跨学科，AI 当翻译</div>
+        <div class="comparison-item">AI加机器人自动迭代</div>
       </div>
     </div>
-    <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
-      <span class="tag tag-blue">🧠 扩散模型</span>
-      <span class="tag tag-pink">📝 大语言模型</span>
-      <span class="tag tag-green">🔬 知识引导深度学习</span>
-      <span class="tag tag-purple">🧮 物理信息神经网络</span>
+    <div style="margin-top:14px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center;">
+      <span class="tag">扩散模型</span>
+      <span class="tag">大语言模型</span>
+      <span class="tag tag-accent">知识引导深度学习</span>
+      <span class="tag tag-accent">物理信息神经网络</span>
     </div>
-    <div class="highlight-box" style="margin-top:14px;">
+    <div class="highlight-box" style="margin-top:12px; border-left-color:var(--accent);">
       最骚的操作是，AI 把「数据驱动」和「物理定律」结合在一起了。<br>
-      它既会从数据学习，又懂科学规律。这个组合拳我认为是真正的核心突破。
+      既会从数据学习，又懂科学规律。这个组合拳是真正的核心突破。
     </div>
   </div>
 
-  <!-- SLIDE 5: 实际案例 -->
-  <div class="slide bg-5" data-index="5">
-    <div class="slide-title gradient-text-green" style="font-size:clamp(1.5rem, 2.8vw, 2.8rem);">已经有人在这么干了<br>而且成果离谱</div>
-    <div class="slide-subtitle" style="margin-bottom:10px;">按升番顺序讲三个例子，一个比一个炸裂</div>
-    <div class="content-grid grid-3" style="margin-top:10px;">
+  <!-- SLIDE 5: 案例-升番 -->
+  <div class="slide" data-index="5" style="background:var(--bg-void);">
+    <div class="slide-title" style="font-size:clamp(1.3rem, 2.5vw, 2.5rem);">已经有人在这么干了<br>而且成果离谱</div>
+    <div class="slide-subtitle muted" style="margin-bottom:6px;">升番排列：一个比一个炸裂</div>
+    <div class="content-grid grid-3">
       <div class="card" style="text-align:center;">
-        <div style="font-size:2.8rem;margin-bottom:2px;">🧮</div>
-        <div class="card-title" style="color:#fee140;">数学猜想的AI助手</div>
-        <div class="card-desc" style="font-size:0.82rem;">
-          机器学习的模型去盯数学结构，从人眼看不出的模式里发现了新的猜想和定理。
-          数学家看了说有意思，然后顺着这个方向继续推。AI不是来取代数学家的，是来给数学家递刀的。
+        <div style="font-size:2.2rem; margin-bottom:6px;">🧮</div>
+        <div class="card-title" style="font-size:0.95rem;">数学猜想的AI助手</div>
+        <div class="card-desc" style="font-size:0.8rem;">
+          AI 从大量数学结构里找出人眼察觉不到的模式，帮数学家发现新猜想。
         </div>
+        <div style="margin-top:8px;"><span class="tag">排第一</span></div>
       </div>
       <div class="card" style="text-align:center;">
-        <div style="font-size:2.8rem;margin-bottom:2px;">🔬</div>
-        <div class="card-title" style="color:#f093fb;">材料筛选加速器</div>
-        <div class="card-desc" style="font-size:0.82rem;">
-          几百万种候选材料，让AI扫一遍。原来十年筛完的，现在几个月。
-          我不夸张地说，这个领域已经在悄悄改变。从我身边的材料科学家朋友来看，他们确实开始用AI了。
+        <div style="font-size:2.2rem; margin-bottom:6px;">🔬</div>
+        <div class="card-title" style="font-size:0.95rem;">材料筛选加速</div>
+        <div class="card-desc" style="font-size:0.8rem;">
+          几百万种候选材料，AI 扫一遍。原来十年筛完的，现在几个月。
         </div>
+        <div style="margin-top:8px;"><span class="tag">再上一步</span></div>
       </div>
-      <div class="card" style="text-align:center; border:1px solid rgba(67,233,123,0.3);">
-        <div style="font-size:2.8rem;margin-bottom:2px;">🧬</div>
-        <div class="card-title" style="color:#43e97b;">AlphaFold 炸了整个生物学</div>
-        <div class="card-desc" style="font-size:0.82rem;">
-          蛋白质三维结构预测。过去一个结构，博士做几年。AlphaFold 几小时。
-          业内直接说这是「生物学50年来最大的突破」。五十年的问题，解决了。你敢信？
+      <div class="card" style="text-align:center; border-color:rgba(94,106,210,0.3);">
+        <div style="font-size:2.2rem; margin-bottom:6px;">🧬</div>
+        <div class="card-title" style="font-size:0.95rem; color:var(--accent-hover);">AlphaFold</div>
+        <div class="card-desc" style="font-size:0.8rem;">
+          蛋白质三维结构预测。过去博士做几年，现在几小时。
+          直接被称为「生物学50年来最大突破」。
         </div>
-        <div style="margin-top:6px;"><span class="tag tag-green">最炸的留到最后 🔥</span></div>
+        <div style="margin-top:8px;"><span class="tag tag-accent">最炸的留最后 🔥</span></div>
       </div>
     </div>
-    <div class="highlight-box" style="margin-top:14px; text-align:center; border-left-color:#43e97b;">
-      你看出来了吗？这三个例子一个比一个颠覆。<br>
-      这就是典型的升番逻辑。最弱的放前面，最炸的留最后。
+    <div class="highlight-box" style="margin-top:14px; text-align:center; border-left-color:var(--accent);">
+      升番逻辑。最弱的放前面，最炸的留最后。<br>
+      一轮一轮往上翻，情绪就这么被推着走。
     </div>
   </div>
 
-  <!-- SLIDE 6: AI + 机器人 = 自动实验室 -->
-  <div class="slide bg-6" data-index="6">
-    <div class="slide-title gradient-text-cyan" style="font-size:clamp(1.5rem, 2.8vw, 2.8rem);">AI + 机器人 = 自己跑的实验室</div>
-    <div class="slide-subtitle" style="margin-bottom:10px;">这个组合，比单独一个AI还要恐怖</div>
-    <div class="content-grid grid-2" style="margin-top:12px;">
-      <div class="card" style="border-left:3px solid #4facfe;">
-        <div class="card-icon">⚙️</div>
+  <!-- SLIDE 6: AI+机器人 -->
+  <div class="slide" data-index="6" style="background:radial-gradient(ellipse 50% 30% at 50% 85%, rgba(94,106,210,0.06), transparent 60%), var(--bg-void);">
+    <div class="slide-title" style="font-size:clamp(1.3rem, 2.5vw, 2.5rem);">AI + 机器人 = 自己跑的实验室</div>
+    <div class="slide-subtitle muted" style="margin-bottom:6px;">这个组合，比单独一个AI还要恐怖</div>
+    <div class="content-grid grid-2" style="margin-top:10px;">
+      <div class="card" style="border-left:3px solid var(--accent);">
         <div class="card-title">机器人替你动手</div>
         <div class="card-desc">
           AI 定方案，机器人执行。人只需要站在旁边看。
-          而且它不是傻做，每做完一轮，AI 分析数据，调参数，下一轮更准。
-          我觉得这才叫真正的闭环。
+          而且不是傻做，每做完一轮，AI 分析数据调参数，下一轮更准。
+          这才是真正的闭环。
         </div>
       </div>
-      <div class="card" style="border-left:3px solid #43e97b;">
-        <div class="card-icon">🔄</div>
+      <div class="card" style="border-left:3px solid var(--success);">
         <div class="card-title">越做越好，不用人管</div>
         <div class="card-desc">
           强化学习闭环。实验→收数据→AI分析→调参数→再实验。
-          一轮一轮往上走，逼近最优解。材料合成、药物发现、核聚变参数优化。
+          材料合成、药物发现、核聚变参数优化。
           这几种「烧钱又烧时间」的事，AI加机器人是真正的破局者。
         </div>
       </div>
     </div>
-    <div style="margin-top:18px; display:flex; gap:20px; justify-content:center; text-align:center;">
-      <div>
-        <div style="font-size:2.2rem;">🧑‍🔬</div>
-        <div style="font-size:0.78rem;opacity:0.6;">过去：手搓实验</div>
-        <div style="font-size:0.78rem;opacity:0.6;">一次做一个</div>
+    <div class="impact-row">
+      <div class="impact-item">
+        <div class="impact-icon">🧑‍🔬</div>
+        <div class="impact-label">过去：手搓实验<br>一次做一个</div>
       </div>
-      <div style="font-size:1.8rem;opacity:0.3;align-self:center;">→</div>
-      <div>
-        <div style="font-size:2.2rem;">🤖</div>
-        <div style="font-size:0.78rem;opacity:0.6;">现在：AI+机器人</div>
-        <div style="font-size:0.78rem;opacity:0.6;">几百个并行跑</div>
+      <div style="align-self:center; color:var(--text-quaternary); font-size:1.2rem;">→</div>
+      <div class="impact-item">
+        <div class="impact-icon">🤖</div>
+        <div class="impact-label">现在：AI+机器人<br>几百个并行跑</div>
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 7: 跨学科融合 -->
-  <div class="slide bg-7" data-index="7">
-    <div class="slide-title gradient-text" style="font-size:clamp(1.5rem, 2.8vw, 2.8rem);">AI 把物理、生物、化学的墙推倒了</div>
-    <div class="slide-subtitle" style="margin-bottom:8px;">这件事我以前也觉得是口号。直到我看到了这些新学科的出现，才意识到真的在发生</div>
-    <div class="content-grid grid-3" style="margin-top:12px;">
+  <!-- SLIDE 7: 跨学科 -->
+  <div class="slide" data-index="7" style="background:var(--bg-void);">
+    <div class="slide-title" style="font-size:clamp(1.2rem, 2.3vw, 2.3rem);">AI 把物理、生物、化学的墙推倒了</div>
+    <div class="slide-subtitle muted" style="margin-bottom:6px;">这件事我以前也觉得是口号。直到看到这些新学科出现</div>
+    <div class="content-grid grid-3">
       <div class="card" style="text-align:center;">
-        <div style="font-size:2.2rem;">🧬💻</div>
-        <div class="card-title">计算生物学</div>
-        <div class="card-desc" style="font-size:0.82rem;">
-          以前学生物的人不会写代码。现在用AI分析基因序列、预测蛋白质结构。
+        <div style="font-size:1.8rem; margin-bottom:6px;">🧬💻</div>
+        <div class="card-title" style="font-size:0.95rem;">计算生物学</div>
+        <div class="card-desc" style="font-size:0.8rem;">
+          以前学生物的人不会写代码。现在用 AI 分析基因序列、预测蛋白质结构。
           生物学家忽然多了一个超能力。
         </div>
       </div>
       <div class="card" style="text-align:center;">
-        <div style="font-size:2.2rem;">⚛️🤖</div>
-        <div class="card-title">量子机器学习</div>
-        <div class="card-desc" style="font-size:0.82rem;">
-          用量子计算加速AI训练，反过来用AI优化量子实验。
-          两个最前沿的领域互相给对方当加速器。这种「你帮我我帮你」的循环，谁看了不说一声好。
+        <div style="font-size:1.8rem; margin-bottom:6px;">⚛️🤖</div>
+        <div class="card-title" style="font-size:0.95rem;">量子机器学习</div>
+        <div class="card-desc" style="font-size:0.8rem;">
+          用量子计算加速 AI 训练，反过来用 AI 优化量子实验。
+          两个最前沿的领域互相给对方当加速器。
         </div>
       </div>
       <div class="card" style="text-align:center;">
-        <div style="font-size:2.2rem;">📚🎨</div>
-        <div class="card-title">数字人文</div>
-        <div class="card-desc" style="font-size:0.82rem;">
-          AI 分析古籍、艺术作品。以前靠学者一辈子积累的眼力，AI 几分钟扫描几万幅画。
-          我从没想过理工科的AI和文科能这么搭。
+        <div style="font-size:1.8rem; margin-bottom:6px;">📚🎨</div>
+        <div class="card-title" style="font-size:0.95rem;">数字人文</div>
+        <div class="card-desc" style="font-size:0.8rem;">
+          AI 分析古籍、艺术作品。以前靠学者一辈子积累的眼力，AI 几分钟扫几万幅画。
+          从没想过理工科AI和文科能这么搭。
         </div>
       </div>
     </div>
-    <div class="highlight-box" style="margin-top:14px; text-align:center; border-left-color:#a18cd1;">
-      我觉得 AI 在这里扮演的角色，其实就是一个超级翻译官<br>
+    <div class="highlight-box" style="margin-top:14px; text-align:center; border-left-color:var(--accent);">
+      AI 在这里扮演的角色，其实就是一个超级翻译官<br>
       让物理学家、生物学家、化学家用同一种语言对话
     </div>
   </div>
 
-  <!-- SLIDE 8: 未来挑战 -->
-  <div class="slide bg-8" data-index="8">
-    <div class="slide-title gradient-text-pink" style="font-size:clamp(1.5rem, 2.8vw, 2.8rem);">不过说实话，路还长</div>
-    <div class="slide-subtitle" style="margin-bottom:8px;">我自己也还在摸索。这篇报告也没藏着掖着，把几个核心挑战都摆出来了</div>
-    <div class="content-grid grid-3" style="margin-top:12px;">
-      <div class="card" style="border-top:3px solid #f5576c; padding-top:18px;">
-        <div class="card-icon">📐</div>
-        <div class="card-title">跨尺度怎么建模？</div>
-        <div class="card-desc">
+  <!-- SLIDE 8: 挑战 -->
+  <div class="slide" data-index="8" style="background:var(--bg-void);">
+    <div class="slide-title" style="font-size:clamp(1.3rem, 2.5vw, 2.5rem);">不过说实话，路还长</div>
+    <div class="slide-subtitle muted" style="margin-bottom:6px;">我自己也还在摸索。这篇报告也没藏着掖着</div>
+    <div class="content-grid grid-3">
+      <div class="card" style="text-align:center; border-top:2px solid #f5576c;">
+        <div style="font-size:1.8rem; margin-bottom:6px;">📐</div>
+        <div class="card-title" style="font-size:0.95rem;">跨尺度怎么建模？</div>
+        <div class="card-desc" style="font-size:0.8rem;">
           从一个原子到整个宇宙，差了几十个数量级。一个AI模型能同时管得了微观和宏观吗？
-          这个问题我坦率的讲，我自己也没答案。
+          坦率的讲，我自己也没答案。
         </div>
       </div>
-      <div class="card" style="border-top:3px solid #fee140; padding-top:18px;">
-        <div class="card-icon">📊</div>
-        <div class="card-title">数据太少怎么办？</div>
-        <div class="card-desc">
+      <div class="card" style="text-align:center; border-top:2px solid #fbbf24;">
+        <div style="font-size:1.8rem; margin-bottom:6px;">📊</div>
+        <div class="card-title" style="font-size:0.95rem;">数据太少怎么办？</div>
+        <div class="card-desc" style="font-size:0.8rem;">
           AI 这玩意吃数据长大的。但很多前沿领域数据就那一点点。
-          让AI在小样本下还能保持泛化能力，是当前最头疼的问题之一。
+          让AI在小样本下还能保持泛化，是当前最头疼的问题。
         </div>
       </div>
-      <div class="card" style="border-top:3px solid #43e97b; padding-top:18px;">
-        <div class="card-icon">🧠</div>
-        <div class="card-title">AI 能有创造力吗？</div>
-        <div class="card-desc">
+      <div class="card" style="text-align:center; border-top:2px solid var(--accent);">
+        <div style="font-size:1.8rem; margin-bottom:6px;">🧠</div>
+        <div class="card-title" style="font-size:0.95rem;">AI 能有创造力吗？</div>
+        <div class="card-desc" style="font-size:0.8rem;">
           AI 能辅助假设，但它自己能「创造」全新的科学理论吗？
-          「想象力」这个人类最骄傲的东西，AI到底能不能学会？我不知道，但我觉得这个问题本身就很迷人。
+          「想象力」这个人类最骄傲的东西，AI 到底能不能学会？
         </div>
       </div>
     </div>
-    <div class="highlight-box" style="margin-top:14px; border-left-color:#fee140;">
-      可能的突破口我也记了一下：跨学科知识图谱、强化学习闭环系统、交互式AI科学助手。<br>
-          这几个方向我觉得还是挺重要的，我持续关注着。
+    <div class="highlight-box" style="margin-top:14px; border-left-color:var(--accent);">
+      可能的突破口：跨学科知识图谱、强化学习闭环系统、交互式AI科学助手。<br>
+      这几个方向我觉得还是挺重要的，我持续关注着。
     </div>
   </div>
 
   <!-- SLIDE 9: 总结 -->
-  <div class="slide bg-9" data-index="9">
-    <div class="emoji-big" style="font-size:3rem;">🚀</div>
-    <div class="slide-title gradient-text" style="font-size:clamp(1.8rem, 3.5vw, 3.5rem);">写在最后</div>
-    <div class="highlight-box" style="text-align:center; font-size:1.25rem; padding:28px; max-width:850px;">
-      <div style="margin-bottom:16px;">说实话，我读到 Nature 这篇报告的时候，感觉还是挺震撼的。</div>
+  <div class="slide" data-index="9" style="background:radial-gradient(ellipse 50% 30% at 50% 80%, rgba(94,106,210,0.08), transparent 60%), var(--bg-void);">
+    <div style="font-size:2.5rem; margin-bottom:12px;">🚀</div>
+    <div class="slide-title gradient-accent" style="font-size:clamp(1.6rem, 3vw, 3rem);">写在最后</div>
+    <div class="divider-line"></div>
+    <div class="highlight-box" style="text-align:center; font-size:1.1rem; padding:24px; max-width:700px; border-left-color:var(--accent);">
+      <div style="margin-bottom:14px; color:var(--text-secondary);">说实话，读到 Nature 这篇报告的时候，感觉还是挺震撼的。</div>
       AI 不再只是科学研究的工具<br>
-      <strong style="background:var(--gradient-2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">它是一种正在重塑科学发现范式的元技术</strong><br>
-      正在开启人类科学探索的全新前沿
-      <div style="margin-top:16px;">而我们，正好活在这个时代。</div>
+      <strong style="background:linear-gradient(135deg, var(--accent), var(--accent-bright)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">它是一种正在重塑科学发现范式的元技术</strong><br>
+      <span style="color:var(--text-secondary);">正在开启人类科学探索的全新前沿</span>
+      <div style="margin-top:14px; color:var(--text-primary);">而我们，正好活在这个时代。</div>
     </div>
-    <div style="margin-top:24px; display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
-      <div style="text-align:center;">
-        <div style="font-size:1.8rem;">🧬🤖</div>
-        <div style="font-size:0.8rem;opacity:0.6;">从经验到智能</div>
+    <div class="impact-row">
+      <div class="impact-item">
+        <div class="impact-icon">🧬🤖</div>
+        <div class="impact-label">从经验到智能</div>
       </div>
-      <div style="text-align:center;">
-        <div style="font-size:1.8rem;">🔬⚡</div>
-        <div style="font-size:0.8rem;opacity:0.6;">从试错到加速</div>
+      <div class="impact-item">
+        <div class="impact-icon">🔬⚡</div>
+        <div class="impact-label">从试错到加速</div>
       </div>
-      <div style="text-align:center;">
-        <div style="font-size:1.8rem;">🌐💡</div>
-        <div style="font-size:0.8rem;opacity:0.6;">从分割到融合</div>
+      <div class="impact-item">
+        <div class="impact-icon">🌐💡</div>
+        <div class="impact-label">从分割到融合</div>
       </div>
     </div>
-    <div style="margin-top:28px; opacity:0.45; font-size:0.8rem; text-align:center; line-height:1.8;">
-      以上，既然看到这里了，如果觉得不错，随手点个赞、转发三连吧～<br>
+    <div style="margin-top:24px; color:var(--text-quaternary); font-size:0.75rem; text-align:center; line-height:1.8;">
+      以上，既然看到这里了，如果觉得不错，随手点个赞、转发三连吧<br>
       谢谢你看完我的分享，我们，下次再见。
     </div>
   </div>
@@ -696,14 +822,13 @@
 
 <div class="progress-bar" id="progress" style="width:10%;"></div>
 <div class="slide-counter" id="counter">1 / 10</div>
-<div class="nav-hint">← 方向键 / 空格 翻页 →</div>
+<div class="nav-hint">← 方向键 · 空格 · 点击 →</div>
 
 <script>
 (function() {
   const slides = document.querySelectorAll('.slide');
   const total = slides.length;
   let current = 0;
-
   const progress = document.getElementById('progress');
   const counter = document.getElementById('counter');
 
@@ -723,11 +848,9 @@
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
-      e.preventDefault();
-      next();
+      e.preventDefault(); next();
     } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-      e.preventDefault();
-      prev();
+      e.preventDefault(); prev();
     }
   });
 
@@ -737,21 +860,15 @@
   });
 
   let touchStartX = 0;
-  document.addEventListener('touchstart', function(e) {
-    touchStartX = e.changedTouches[0].screenX;
-  });
+  document.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].screenX; });
   document.addEventListener('touchend', function(e) {
     const diff = e.changedTouches[0].screenX - touchStartX;
-    if (Math.abs(diff) > 50) {
-      if (diff < 0) next();
-      else prev();
-    }
+    if (Math.abs(diff) > 50) { if (diff < 0) next(); else prev(); }
   });
 
   progress.style.width = ((current + 1) / total * 100) + '%';
   counter.textContent = (current + 1) + ' / ' + total;
 })();
 </script>
-
 </body>
 </html>
