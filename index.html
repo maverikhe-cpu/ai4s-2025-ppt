@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI for Science 2025 — 当AI遇上科学</title>
+<title>聊一件打动我的事：AI for Science 2025</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
 
@@ -119,16 +119,6 @@
     opacity: 0.82;
   }
 
-  .big-number {
-    font-size: 3.5rem;
-    font-weight: 900;
-    background: var(--gradient-4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
-  }
-
   .highlight-box {
     background: rgba(255,255,255,0.1);
     border-left: 4px solid #667eea;
@@ -188,7 +178,6 @@
     text-align: center;
   }
 
-  /* Smooth gradient backgrounds per slide */
   .bg-0 { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
   .bg-1 { background: linear-gradient(135deg, #1a0a2e, #2d1b69); }
   .bg-2 { background: linear-gradient(135deg, #0d0a2a, #1a1a4e); }
@@ -247,7 +236,6 @@
     margin-bottom: 16px;
   }
 
-  /* comparison */
   .comparison {
     display: flex;
     gap: 30px;
@@ -275,7 +263,6 @@
     font-weight: 500;
   }
 
-  /* Responsive */
   @media (max-width: 768px) {
     .slide { padding: 30px 20px; }
     .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
@@ -339,10 +326,13 @@
   <!-- SLIDE 0: 标题页 -->
   <div class="slide active bg-0" data-index="0">
     <div class="emoji-big">🧬🤖</div>
-    <div class="slide-title gradient-text">AI for Science 2025</div>
-    <div class="slide-subtitle" style="margin-bottom:12px;">当人工智能遇上科学研究</div>
-    <div class="highlight-box" style="text-align:center; border-left-color:#667eea;">
-      AI 不再只是科学工具，而是<strong>重塑科学发现范式的元技术</strong>
+    <div class="slide-title gradient-text" style="font-size:clamp(1.8rem, 3.8vw, 3.8rem);">聊一件打动我的事</div>
+    <div class="slide-title gradient-text-cyan" style="font-size:clamp(1.4rem, 2.8vw, 3rem); margin-top:-10px;">AI for Science 2025</div>
+    <div class="slide-subtitle" style="margin-bottom:6px;">AI 正在重新发明「科学」这件事</div>
+    <div class="slide-subtitle" style="font-size:clamp(0.85rem, 1.2vw, 1.3rem);">而且，比你想的要快得多</div>
+    <div class="highlight-box" style="text-align:center; border-left-color:#667eea; margin-top:24px;">
+      AI 不再只是科学工具<br>
+      它是正在重塑科学发现范式的<strong>元技术</strong>
     </div>
     <div style="margin-top:30px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center;">
       <span class="tag tag-blue">🤖 生成式AI</span>
@@ -351,10 +341,8 @@
       <span class="tag tag-purple">📊 大数据</span>
       <span class="tag tag-cyan">🌐 跨学科</span>
     </div>
-    <div style="margin-top:50px; display:flex; align-items:center; gap:12px; opacity:0.5; font-size:0.85rem;">
-      <span>基于 Nature「AI for Science 2025」报告</span>
-      <span>·</span>
-      <span>科普版</span>
+    <div style="margin-top:40px; opacity:0.4; font-size:0.8rem; text-align:center;">
+      基于 Nature「AI for Science 2025」· 数字生命卡兹克风格
     </div>
     <div style="position:absolute; bottom:40px; left:50%; transform:translateX(-50%);">
       <div style="width:30px; height:30px; border-right:2px solid rgba(255,255,255,0.3); border-bottom:2px solid rgba(255,255,255,0.3); transform:rotate(45deg); animation:bounce 2s infinite;"></div>
@@ -363,112 +351,127 @@
 
   <!-- SLIDE 1: 什么是AI for Science -->
   <div class="slide bg-1" data-index="1">
-    <div class="slide-title gradient-text" style="font-size:clamp(1.8rem, 3.5vw, 3.5rem);">什么是 AI for Science？</div>
-    <div class="slide-subtitle" style="margin-bottom:16px;">一句话：<strong>用AI加速科学发现的全过程</strong></div>
+    <div class="slide-title gradient-text" style="font-size:clamp(1.6rem, 3.2vw, 3.2rem);">说实话，你理解的「科学」<br>可能还停留在上个世纪</div>
+    <div class="slide-subtitle" style="margin-bottom:12px;">我跟你讲，AI 现在干的事，说出来你可能不信</div>
     <div class="content-grid grid-3">
       <div class="card">
         <div class="card-icon">🔍</div>
-        <div class="card-title">自动发现规律</div>
-        <div class="card-desc">AI从海量实验数据中自动识别隐藏模式，不需要科学家事先提出假设</div>
+        <div class="card-title">它在替科学家「看」</div>
+        <div class="card-desc">
+          以前靠肉眼和直觉找规律。现在 AI 从海量数据里自己就能看出隐藏模式。根本不用等人来猜假设。
+          就像你看一张图只能看到猫，AI 能看到这张图是谁拍的、什么焦段、猫的心情怎么样。
+        </div>
       </div>
       <div class="card">
         <div class="card-icon">🧪</div>
-        <div class="card-title">智能实验设计</div>
-        <div class="card-desc">AI+机器人自动设计实验方案，实时调参，把"试错"效率提升百倍</div>
+        <div class="card-title">它在替科学家「试」</div>
+        <div class="card-desc">
+          传统试错多慢？一个材料从实验室到应用，十几年。AI加机器人，几十上百个参数同时调，人做不到。
+          我自己的感受是，这种感觉太爽了。不是替代人，是让人从重复劳动里解放出来。
+        </div>
       </div>
       <div class="card">
         <div class="card-icon">🌉</div>
-        <div class="card-title">跨学科融合</div>
-        <div class="card-desc">打破物理、生物、化学的学科壁垒，让知识自由流动，催生新学科</div>
+        <div class="card-title">它在替科学家「搭桥」</div>
+        <div class="card-desc">
+          物理学家不懂生物代码，生物学家不懂量子力学。AI 不一样。它不讲学科语言，它讲数学语言。
+          于是隔了半个世纪的物理和生物，忽然能对话了。
+        </div>
       </div>
     </div>
     <div class="highlight-box" style="margin-top:24px; text-align:center; border-left-color:#f5576c;">
-      🎯 目标：让科学研究从「费力摸索」变成「智能加速」
+      我想说的是，科学研究正在从「费力摸索」走向「智能加速」<br>
+      这可能是最近十年最激动人心的变化
     </div>
-    <div class="footer-note">← ← 使用键盘方向键翻页 → →</div>
+    <div class="footer-note">← ← 键盘方向键翻页 → →</div>
   </div>
 
   <!-- SLIDE 2: 传统科研四大范式 -->
   <div class="slide bg-2" data-index="2">
-    <div class="slide-title gradient-text-cyan" style="font-size:clamp(1.6rem, 3vw, 3rem);">🧓 传统科研的四大范式</div>
-    <div class="slide-subtitle" style="font-size:clamp(0.9rem, 1.4vw, 1.5rem); margin-bottom:10px;">科学研究走过的4个阶段</div>
+    <div class="slide-title gradient-text-cyan" style="font-size:clamp(1.6rem, 3vw, 3rem);">你猜科学家以前是怎么搞研究的？</div>
+    <div class="slide-subtitle" style="font-size:clamp(0.9rem, 1.3vw, 1.4rem); margin-bottom:8px;">我觉得这事特别有意思。我自己也是做了这个才知道，原来科学研究经历了五个阶段</div>
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-dot" style="background:#f5576c;"></div>
-        <div class="timeline-year">第1范式</div>
-        <div class="timeline-label">经验归纳<br><span style="font-size:0.7rem;opacity:0.6;">实验 · 观察 · 记录</span></div>
+        <div class="timeline-year">第1代</div>
+        <div class="timeline-label">看见什么<br><span style="font-size:0.7rem;opacity:0.6;">记录什么</span></div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot" style="background:#667eea;"></div>
-        <div class="timeline-year">第2范式</div>
-        <div class="timeline-label">理论建模<br><span style="font-size:0.7rem;opacity:0.6;">公式 · 逻辑 · 推导</span></div>
+        <div class="timeline-year">第2代</div>
+        <div class="timeline-label">想明白<br><span style="font-size:0.7rem;opacity:0.6;">为什么</span></div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot" style="background:#43e97b;"></div>
-        <div class="timeline-year">第3范式</div>
-        <div class="timeline-label">计算仿真<br><span style="font-size:0.7rem;opacity:0.6;">数值 · 模拟 · 近似</span></div>
+        <div class="timeline-year">第3代</div>
+        <div class="timeline-label">用电脑<br><span style="font-size:0.7rem;opacity:0.6;">模拟它</span></div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot" style="background:#f093fb;"></div>
-        <div class="timeline-year">第4范式</div>
-        <div class="timeline-label">数据驱动<br><span style="font-size:0.7rem;opacity:0.6;">挖掘 · 统计 · 模式</span></div>
+        <div class="timeline-year">第4代</div>
+        <div class="timeline-label">让数据<br><span style="font-size:0.7rem;opacity:0.6;">自己说话</span></div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot" style="background:#fee140;"></div>
         <div class="timeline-year" style="font-weight:900;">AI4S</div>
-        <div class="timeline-label" style="font-weight:700;">智能科学<br><span style="font-size:0.7rem;opacity:0.6;">AI驱动 · 自动发现</span></div>
+        <div class="timeline-label" style="font-weight:700;">AI自己<br><span style="font-size:0.7rem;opacity:0.6;">做科学</span></div>
       </div>
     </div>
-    <div class="content-grid grid-4" style="margin-top:30px; gap:16px;">
-      <div class="card" style="padding:16px;text-align:center;">
-        <div style="font-size:1.8rem;">🔬</div>
-        <div style="font-size:0.78rem;margin-top:6px;"><strong>经验</strong><br>观察→总结规律</div>
+    <div class="content-grid grid-4" style="margin-top:24px; gap:12px;">
+      <div class="card" style="padding:14px 10px;text-align:center;">
+        <div style="font-size:1.5rem;">🔬</div>
+        <div style="font-size:0.72rem;margin-top:4px;">伽利略落体实验<br>看见什么记什么</div>
       </div>
-      <div class="card" style="padding:16px;text-align:center;">
-        <div style="font-size:1.8rem;">📐</div>
-        <div style="font-size:0.78rem;margin-top:6px;"><strong>理论</strong><br>假设→推导验证</div>
+      <div class="card" style="padding:14px 10px;text-align:center;">
+        <div style="font-size:1.5rem;">📐</div>
+        <div style="font-size:0.72rem;margin-top:4px;">牛顿写公式<br>猜对了再证明</div>
       </div>
-      <div class="card" style="padding:16px;text-align:center;">
-        <div style="font-size:1.8rem;">💻</div>
-        <div style="font-size:0.78rem;margin-top:6px;"><strong>计算</strong><br>模型→数值模拟</div>
+      <div class="card" style="padding:14px 10px;text-align:center;">
+        <div style="font-size:1.5rem;">💻</div>
+        <div style="font-size:0.72rem;margin-top:4px;">天气预报那种<br>算不出来就模拟</div>
       </div>
-      <div class="card" style="padding:16px;text-align:center;">
-        <div style="font-size:1.8rem;">📊</div>
-        <div style="font-size:0.78rem;margin-top:6px;"><strong>数据</strong><br>统计→发现模式</div>
+      <div class="card" style="padding:14px 10px;text-align:center;">
+        <div style="font-size:1.5rem;">📊</div>
+        <div style="font-size:0.72rem;margin-top:4px;">Google流感预测<br>数据里找模式</div>
       </div>
     </div>
   </div>
 
   <!-- SLIDE 3: 传统范式的困境 -->
   <div class="slide bg-3" data-index="3">
-    <div class="slide-title gradient-text-pink" style="font-size:clamp(1.6rem, 3vw, 3rem);">🤔 传统方法为什么不够用了？</div>
-    <div class="content-grid grid-2" style="margin-top:20px;">
+    <div class="slide-title gradient-text-pink" style="font-size:clamp(1.5rem, 2.8vw, 2.8rem);">说实话，这些招儿现在不够用了</div>
+    <div class="slide-subtitle" style="font-size:clamp(0.85rem, 1.2vw, 1.3rem);">而且不是我一个人这么觉得。Nature 这篇报告里说的，我深以为然</div>
+    <div class="content-grid grid-2" style="margin-top:16px;">
       <div class="card" style="border-left:3px solid #f5576c;">
         <div class="card-icon">🧩</div>
-        <div class="card-title">复杂系统太难建模</div>
+        <div class="card-title">复杂系统，算不动了</div>
         <div class="card-desc">
-          现代科学面对的是一环套一环的复杂系统——气候变化、大脑神经、流行病传播。传统理论在这些<strong>多尺度、跨时空</strong>的系统面前显得力不从心。
+          气候变化、大脑神经、流行病传播。这些系统一环套一环，跨尺度跨时空。
+          传统理论不是错了，是根本算不过来。就像你让牛顿去预测明天的股市，他也能给你分析，但没用。
         </div>
       </div>
       <div class="card" style="border-left:3px solid #f093fb;">
         <div class="card-icon">⏱️</div>
-        <div class="card-title">实验试错成本太高</div>
+        <div class="card-title">试错太慢，等不起</div>
         <div class="card-desc">
-          材料合成、药物研发仍靠大量手动试错，"烧瓶+运气"的模式效率低、周期长。一个新材料从实验室到应用可能<strong>耗时十几年</strong>。
+          材料研发还是烧瓶加运气。一个新药从开始到上市，十年起步。
+          这十年里多少人本来能救的？说真的，不是不想快，是真快不了。
         </div>
       </div>
       <div class="card" style="border-left:3px solid #fee140;">
         <div class="card-icon">🔗</div>
-        <div class="card-title">数据多但因果难找</div>
+        <div class="card-title">数据多，因果难找</div>
         <div class="card-desc">
-          大数据时代数据爆炸，但"相关性不等于因果性"。传统数据挖掘能发现模式，却难以揭示<strong>事物之间的因果逻辑</strong>。
+          要说数据，从来没人像今天这么多。但「相关」不等于「因果」。
+          吃冰淇淋的人越多，溺水的人也越多。这是真的相关，但你要说冰淇淋导致溺水？那也太扯了。
         </div>
       </div>
       <div class="card" style="border-left:3px solid #43e97b;">
         <div class="card-icon">📉</div>
-        <div class="card-title">高质量数据稀缺</div>
+        <div class="card-title">数据少的时候，更难</div>
         <div class="card-desc">
-          很多前沿领域（如核聚变、量子材料）实验成本极高，数据点稀少。传统方法在<strong>小样本场景</strong>下表现得非常脆弱。
+          核聚变的数据多贵你知道吗？发一次实验几百万。量子材料也是，做一组数据难如登天。
+          传统方法在数据稀少的领域，基本就是抓瞎。
         </div>
       </div>
     </div>
@@ -476,195 +479,216 @@
 
   <!-- SLIDE 4: AI的入场 -->
   <div class="slide bg-4" data-index="4">
-    <div class="slide-title gradient-text-cyan" style="font-size:clamp(1.6rem, 3vw, 3rem);">🤖 AI如何改变游戏规则？</div>
+    <div class="slide-title gradient-text-cyan" style="font-size:clamp(1.5rem, 2.8vw, 2.8rem);">AI 来了，然后呢？</div>
+    <div class="slide-subtitle" style="margin-bottom:8px;">它做的不是「优化」，是做了一件以前根本不可能的事</div>
     <div class="comparison">
       <div class="comparison-col old">
-        <div class="comparison-label" style="color:#f5576c;">❌ 传统科研</div>
+        <div class="comparison-label" style="color:#f5576c;">❌ 过去这套玩法</div>
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <div>🔹 先想假设，再做实验验证</div>
-          <div>🔹 手动分析，耗时耗力</div>
-          <div>🔹 领域分割，各做各的</div>
-          <div>🔹 试错靠经验和运气</div>
+          <div>先有想法，再做实验</div>
+          <div>手动分析，耗时间</div>
+          <div>各学科各干各的</div>
+          <div>试错靠经验和运气</div>
         </div>
       </div>
       <div class="comparison-col new">
-        <div class="comparison-label" style="color:#667eea;">✅ AI赋能科研</div>
+        <div class="comparison-label" style="color:#667eea;">✅ AI 时代</div>
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <div>🔹 AI自动从数据中发现隐藏模式</div>
-          <div>🔹 海量数据秒级处理分析</div>
-          <div>🔹 跨学科整合，打破壁垒</div>
-          <div>🔹 AI+机器人自动实验迭代</div>
+          <div>AI 去数据里自己找模式</div>
+          <div>数据量再大，秒级处理</div>
+          <div>跨学科，AI 当翻译</div>
+          <div>AI加机器人自动迭代</div>
         </div>
       </div>
     </div>
-    <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+    <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
       <span class="tag tag-blue">🧠 扩散模型</span>
       <span class="tag tag-pink">📝 大语言模型</span>
       <span class="tag tag-green">🔬 知识引导深度学习</span>
       <span class="tag tag-purple">🧮 物理信息神经网络</span>
     </div>
-    <div class="highlight-box" style="margin-top:16px;">
-      💡 <strong>关键突破</strong>：AI将<strong>数据驱动</strong>和<strong>先验知识（物理定律、化学规则）</strong>相结合，既会从数据学习，又懂科学规律，大幅提升泛化能力和可解释性。
+    <div class="highlight-box" style="margin-top:14px;">
+      最骚的操作是，AI 把「数据驱动」和「物理定律」结合在一起了。<br>
+      它既会从数据学习，又懂科学规律。这个组合拳我认为是真正的核心突破。
     </div>
   </div>
 
   <!-- SLIDE 5: 实际案例 -->
   <div class="slide bg-5" data-index="5">
-    <div class="slide-title gradient-text-green" style="font-size:clamp(1.6rem, 3vw, 3rem);">✨ AI已经在这些领域大显身手</div>
-    <div class="content-grid grid-3" style="margin-top:16px;">
+    <div class="slide-title gradient-text-green" style="font-size:clamp(1.5rem, 2.8vw, 2.8rem);">已经有人在这么干了<br>而且成果离谱</div>
+    <div class="slide-subtitle" style="margin-bottom:10px;">按升番顺序讲三个例子，一个比一个炸裂</div>
+    <div class="content-grid grid-3" style="margin-top:10px;">
       <div class="card" style="text-align:center;">
-        <div style="font-size:3rem;margin-bottom:4px;">🧮</div>
-        <div class="card-title" style="color:#43e97b;">数学发现</div>
-        <div class="card-desc" style="font-size:0.85rem;">
-          机器学习帮助数学家发现新的猜想和定理。AI从大量数学结构中找出人眼难以察觉的模式，为数学家提供灵感。
+        <div style="font-size:2.8rem;margin-bottom:2px;">🧮</div>
+        <div class="card-title" style="color:#fee140;">数学猜想的AI助手</div>
+        <div class="card-desc" style="font-size:0.82rem;">
+          机器学习的模型去盯数学结构，从人眼看不出的模式里发现了新的猜想和定理。
+          数学家看了说有意思，然后顺着这个方向继续推。AI不是来取代数学家的，是来给数学家递刀的。
         </div>
-        <div style="margin-top:8px;"><span class="tag tag-green">已实现 ✅</span></div>
       </div>
       <div class="card" style="text-align:center;">
-        <div style="font-size:3rem;margin-bottom:4px;">🧬</div>
-        <div class="card-title" style="color:#4facfe;">蛋白质折叠</div>
-        <div class="card-desc" style="font-size:0.85rem;">
-          AlphaFold用AI预测蛋白质三维结构，将过去需要数年时间的工作缩短到几小时，被誉为"解决了生物学50年难题"。
+        <div style="font-size:2.8rem;margin-bottom:2px;">🔬</div>
+        <div class="card-title" style="color:#f093fb;">材料筛选加速器</div>
+        <div class="card-desc" style="font-size:0.82rem;">
+          几百万种候选材料，让AI扫一遍。原来十年筛完的，现在几个月。
+          我不夸张地说，这个领域已经在悄悄改变。从我身边的材料科学家朋友来看，他们确实开始用AI了。
         </div>
-        <div style="margin-top:8px;"><span class="tag tag-cyan">已实现 ✅</span></div>
       </div>
-      <div class="card" style="text-align:center;">
-        <div style="font-size:3rem;margin-bottom:4px;">🔬</div>
-        <div class="card-title" style="color:#f5576c;">材料科学</div>
-        <div class="card-desc" style="font-size:0.85rem;">
-          AI加速新材料筛选：从数百万种候选材料中快速锁定最有潜力的组合，大幅缩短从发现到应用的周期。
+      <div class="card" style="text-align:center; border:1px solid rgba(67,233,123,0.3);">
+        <div style="font-size:2.8rem;margin-bottom:2px;">🧬</div>
+        <div class="card-title" style="color:#43e97b;">AlphaFold 炸了整个生物学</div>
+        <div class="card-desc" style="font-size:0.82rem;">
+          蛋白质三维结构预测。过去一个结构，博士做几年。AlphaFold 几小时。
+          业内直接说这是「生物学50年来最大的突破」。五十年的问题，解决了。你敢信？
         </div>
-        <div style="margin-top:8px;"><span class="tag tag-pink">进行中 🔄</span></div>
+        <div style="margin-top:6px;"><span class="tag tag-green">最炸的留到最后 🔥</span></div>
       </div>
     </div>
-    <div class="highlight-box" style="margin-top:16px; text-align:center; border-left-color:#43e97b;">
-      🚀 AI的核心能力：在巨大的"解空间"中快速导航，生成高质量的候选假设
+    <div class="highlight-box" style="margin-top:14px; text-align:center; border-left-color:#43e97b;">
+      你看出来了吗？这三个例子一个比一个颠覆。<br>
+      这就是典型的升番逻辑。最弱的放前面，最炸的留最后。
     </div>
   </div>
 
   <!-- SLIDE 6: AI + 机器人 = 自动实验室 -->
   <div class="slide bg-6" data-index="6">
-    <div class="slide-title gradient-text-cyan" style="font-size:clamp(1.6rem, 3vw, 3rem);">🤖🧪 AI + 机器人 = 自动实验室</div>
-    <div class="content-grid grid-2" style="margin-top:16px;">
+    <div class="slide-title gradient-text-cyan" style="font-size:clamp(1.5rem, 2.8vw, 2.8rem);">AI + 机器人 = 自己跑的实验室</div>
+    <div class="slide-subtitle" style="margin-bottom:10px;">这个组合，比单独一个AI还要恐怖</div>
+    <div class="content-grid grid-2" style="margin-top:12px;">
       <div class="card" style="border-left:3px solid #4facfe;">
         <div class="card-icon">⚙️</div>
-        <div class="card-title">自主实验设计</div>
+        <div class="card-title">机器人替你动手</div>
         <div class="card-desc">
-          AI根据已有数据和目标，自动生成实验方案、选择最优参数，然后指挥机器人执行实验——<strong>无需人类手动操作</strong>。
+          AI 定方案，机器人执行。人只需要站在旁边看。
+          而且它不是傻做，每做完一轮，AI 分析数据，调参数，下一轮更准。
+          我觉得这才叫真正的闭环。
         </div>
       </div>
       <div class="card" style="border-left:3px solid #43e97b;">
         <div class="card-icon">🔄</div>
-        <div class="card-title">闭环优化迭代</div>
+        <div class="card-title">越做越好，不用人管</div>
         <div class="card-desc">
-          实验→收集数据→AI分析→调整参数→下一轮实验，形成<strong>强化学习闭环</strong>，在迭代中不断逼近最优方案。
+          强化学习闭环。实验→收数据→AI分析→调参数→再实验。
+          一轮一轮往上走，逼近最优解。材料合成、药物发现、核聚变参数优化。
+          这几种「烧钱又烧时间」的事，AI加机器人是真正的破局者。
         </div>
       </div>
     </div>
-    <div style="margin-top:20px; display:flex; gap:20px; justify-content:center; text-align:center;">
+    <div style="margin-top:18px; display:flex; gap:20px; justify-content:center; text-align:center;">
       <div>
-        <div style="font-size:2.5rem;">🧑‍🔬</div>
-        <div style="font-size:0.8rem;opacity:0.6;">传统：手动操作</div>
-        <div style="font-size:0.8rem;opacity:0.6;">一次一个实验</div>
+        <div style="font-size:2.2rem;">🧑‍🔬</div>
+        <div style="font-size:0.78rem;opacity:0.6;">过去：手搓实验</div>
+        <div style="font-size:0.78rem;opacity:0.6;">一次做一个</div>
       </div>
-      <div style="font-size:2rem;opacity:0.3;align-self:center;">→</div>
+      <div style="font-size:1.8rem;opacity:0.3;align-self:center;">→</div>
       <div>
-        <div style="font-size:2.5rem;">🤖</div>
-        <div style="font-size:0.8rem;opacity:0.6;">AI+机器人</div>
-        <div style="font-size:0.8rem;opacity:0.6;">批量并行优化</div>
+        <div style="font-size:2.2rem;">🤖</div>
+        <div style="font-size:0.78rem;opacity:0.6;">现在：AI+机器人</div>
+        <div style="font-size:0.78rem;opacity:0.6;">几百个并行跑</div>
       </div>
-    </div>
-    <div class="highlight-box" style="margin-top:16px; border-left-color:#4facfe;">
-      📍 应用前景：材料合成、药物研发、核聚变实验……AI+机器人在这些"烧钱又烧时间"的领域潜力巨大
     </div>
   </div>
 
   <!-- SLIDE 7: 跨学科融合 -->
   <div class="slide bg-7" data-index="7">
-    <div class="slide-title" style="font-size:clamp(1.6rem, 3vw, 3rem);">
-      <span class="gradient-text-pink">🌉</span> <span class="gradient-text">跨学科融合</span>
-    </div>
-    <div class="slide-subtitle">AI正在打破学科壁垒，催生全新的交叉学科</div>
-    <div class="content-grid grid-3" style="margin-top:16px;">
+    <div class="slide-title gradient-text" style="font-size:clamp(1.5rem, 2.8vw, 2.8rem);">AI 把物理、生物、化学的墙推倒了</div>
+    <div class="slide-subtitle" style="margin-bottom:8px;">这件事我以前也觉得是口号。直到我看到了这些新学科的出现，才意识到真的在发生</div>
+    <div class="content-grid grid-3" style="margin-top:12px;">
       <div class="card" style="text-align:center;">
-        <div style="font-size:2.5rem;">🧬💻</div>
+        <div style="font-size:2.2rem;">🧬💻</div>
         <div class="card-title">计算生物学</div>
-        <div class="card-desc" style="font-size:0.85rem;">AI分析基因序列、预测蛋白质结构、模拟生物过程</div>
+        <div class="card-desc" style="font-size:0.82rem;">
+          以前学生物的人不会写代码。现在用AI分析基因序列、预测蛋白质结构。
+          生物学家忽然多了一个超能力。
+        </div>
       </div>
       <div class="card" style="text-align:center;">
-        <div style="font-size:2.5rem;">⚛️🤖</div>
+        <div style="font-size:2.2rem;">⚛️🤖</div>
         <div class="card-title">量子机器学习</div>
-        <div class="card-desc" style="font-size:0.85rem;">用量子计算加速AI训练，用AI优化量子实验</div>
+        <div class="card-desc" style="font-size:0.82rem;">
+          用量子计算加速AI训练，反过来用AI优化量子实验。
+          两个最前沿的领域互相给对方当加速器。这种「你帮我我帮你」的循环，谁看了不说一声好。
+        </div>
       </div>
       <div class="card" style="text-align:center;">
-        <div style="font-size:2.5rem;">📚🎨</div>
+        <div style="font-size:2.2rem;">📚🎨</div>
         <div class="card-title">数字人文</div>
-        <div class="card-desc" style="font-size:0.85rem;">AI分析古籍文献、艺术作品，发现人类文明的新维度</div>
+        <div class="card-desc" style="font-size:0.82rem;">
+          AI 分析古籍、艺术作品。以前靠学者一辈子积累的眼力，AI 几分钟扫描几万幅画。
+          我从没想过理工科的AI和文科能这么搭。
+        </div>
       </div>
     </div>
-    <div class="highlight-box" style="margin-top:16px; text-align:center; border-left-color:#a18cd1;">
-      🌟 AI充当了学科之间的"翻译官"和"黏合剂"，让物理学家、生物学家、化学家能用同一种语言对话
+    <div class="highlight-box" style="margin-top:14px; text-align:center; border-left-color:#a18cd1;">
+      我觉得 AI 在这里扮演的角色，其实就是一个超级翻译官<br>
+      让物理学家、生物学家、化学家用同一种语言对话
     </div>
   </div>
 
   <!-- SLIDE 8: 未来挑战 -->
   <div class="slide bg-8" data-index="8">
-    <div class="slide-title gradient-text-pink" style="font-size:clamp(1.6rem, 3vw, 3rem);">🔮 前方挑战：AI4S还有哪些坎要过？</div>
-    <div class="content-grid grid-3" style="margin-top:16px;">
-      <div class="card" style="border-top:3px solid #f5576c; padding-top:20px;">
+    <div class="slide-title gradient-text-pink" style="font-size:clamp(1.5rem, 2.8vw, 2.8rem);">不过说实话，路还长</div>
+    <div class="slide-subtitle" style="margin-bottom:8px;">我自己也还在摸索。这篇报告也没藏着掖着，把几个核心挑战都摆出来了</div>
+    <div class="content-grid grid-3" style="margin-top:12px;">
+      <div class="card" style="border-top:3px solid #f5576c; padding-top:18px;">
         <div class="card-icon">📐</div>
-        <div class="card-title">跨尺度建模</div>
+        <div class="card-title">跨尺度怎么建模？</div>
         <div class="card-desc">
-          从原子到宇宙，不同尺度的系统如何用统一模型描述？这是AI4S面临的核心技术难题。
+          从一个原子到整个宇宙，差了几十个数量级。一个AI模型能同时管得了微观和宏观吗？
+          这个问题我坦率的讲，我自己也没答案。
         </div>
       </div>
-      <div class="card" style="border-top:3px solid #fee140; padding-top:20px;">
+      <div class="card" style="border-top:3px solid #fee140; padding-top:18px;">
         <div class="card-icon">📊</div>
-        <div class="card-title">数据稀缺场景</div>
+        <div class="card-title">数据太少怎么办？</div>
         <div class="card-desc">
-          很多前沿科学领域数据极度稀缺，AI如何在"吃不饱"的情况下保持泛化能力？
+          AI 这玩意吃数据长大的。但很多前沿领域数据就那一点点。
+          让AI在小样本下还能保持泛化能力，是当前最头疼的问题之一。
         </div>
       </div>
-      <div class="card" style="border-top:3px solid #43e97b; padding-top:20px;">
+      <div class="card" style="border-top:3px solid #43e97b; padding-top:18px;">
         <div class="card-icon">🧠</div>
-        <div class="card-title">假设生成边界</div>
+        <div class="card-title">AI 能有创造力吗？</div>
         <div class="card-desc">
-          AI能辅助提出假设，但能否真正"创造"全新的科学理论？想象力的边界在哪里？
+          AI 能辅助假设，但它自己能「创造」全新的科学理论吗？
+          「想象力」这个人类最骄傲的东西，AI到底能不能学会？我不知道，但我觉得这个问题本身就很迷人。
         </div>
       </div>
     </div>
-    <div class="highlight-box" style="margin-top:16px; border-left-color:#fee140;">
-      🎯 <strong>可能的突破方向</strong>：跨学科知识图谱 · 强化学习闭环系统 · 交互式AI科学助手
+    <div class="highlight-box" style="margin-top:14px; border-left-color:#fee140;">
+      可能的突破口我也记了一下：跨学科知识图谱、强化学习闭环系统、交互式AI科学助手。<br>
+          这几个方向我觉得还是挺重要的，我持续关注着。
     </div>
   </div>
 
   <!-- SLIDE 9: 总结 -->
   <div class="slide bg-9" data-index="9">
-    <div class="emoji-big">🚀</div>
-    <div class="slide-title gradient-text" style="font-size:clamp(2rem, 4vw, 4rem);">总结</div>
-    <div class="highlight-box" style="text-align:center; font-size:1.3rem; padding:28px; max-width:850px;">
-      <div class="quote-mark" style="text-align:left;">"</div>
+    <div class="emoji-big" style="font-size:3rem;">🚀</div>
+    <div class="slide-title gradient-text" style="font-size:clamp(1.8rem, 3.5vw, 3.5rem);">写在最后</div>
+    <div class="highlight-box" style="text-align:center; font-size:1.25rem; padding:28px; max-width:850px;">
+      <div style="margin-bottom:16px;">说实话，我读到 Nature 这篇报告的时候，感觉还是挺震撼的。</div>
       AI 不再只是科学研究的工具<br>
-      <strong style="background:var(--gradient-2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">它是一种重塑科学发现范式的元技术</strong><br>
+      <strong style="background:var(--gradient-2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">它是一种正在重塑科学发现范式的元技术</strong><br>
       正在开启人类科学探索的全新前沿
-      <div class="quote-mark" style="text-align:right;margin-top:-20px;">"</div>
+      <div style="margin-top:16px;">而我们，正好活在这个时代。</div>
     </div>
-    <div style="margin-top:30px; display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
+    <div style="margin-top:24px; display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
       <div style="text-align:center;">
-        <div style="font-size:2rem;">🧬🤖</div>
+        <div style="font-size:1.8rem;">🧬🤖</div>
         <div style="font-size:0.8rem;opacity:0.6;">从经验到智能</div>
       </div>
       <div style="text-align:center;">
-        <div style="font-size:2rem;">🔬⚡</div>
+        <div style="font-size:1.8rem;">🔬⚡</div>
         <div style="font-size:0.8rem;opacity:0.6;">从试错到加速</div>
       </div>
       <div style="text-align:center;">
-        <div style="font-size:2rem;">🌐💡</div>
+        <div style="font-size:1.8rem;">🌐💡</div>
         <div style="font-size:0.8rem;opacity:0.6;">从分割到融合</div>
       </div>
     </div>
-    <div style="margin-top:40px; opacity:0.4; font-size:0.8rem; text-align:center;">
-      基于 Nature「AI for Science 2025」· 科普版
+    <div style="margin-top:28px; opacity:0.45; font-size:0.8rem; text-align:center; line-height:1.8;">
+      以上，既然看到这里了，如果觉得不错，随手点个赞、转发三连吧～<br>
+      谢谢你看完我的分享，我们，下次再见。
     </div>
   </div>
 
@@ -697,7 +721,6 @@
   function next() { goTo(current + 1); }
   function prev() { goTo(current - 1); }
 
-  // Keyboard
   document.addEventListener('keydown', function(e) {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
       e.preventDefault();
@@ -708,13 +731,11 @@
     }
   });
 
-  // Click/tap to advance
   document.addEventListener('click', function(e) {
     if (e.target.closest('.card, .tag, .nav-hint, .slide-counter, .progress-bar')) return;
     next();
   });
 
-  // Touch swipe
   let touchStartX = 0;
   document.addEventListener('touchstart', function(e) {
     touchStartX = e.changedTouches[0].screenX;
@@ -727,7 +748,6 @@
     }
   });
 
-  // Initial
   progress.style.width = ((current + 1) / total * 100) + '%';
   counter.textContent = (current + 1) + ' / ' + total;
 })();
